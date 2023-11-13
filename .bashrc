@@ -115,4 +115,15 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Alias for bare git repo which is used to manage dotfiles.
+# The remote repo lives in GitHub.
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+#######################################################
+# FuzzyFinder fzf
+#######################################################
+# FuzzyFinder (fzf) key bindings:
+source /usr/share/doc/fzf/examples/key-bindings.bash
+# Print tree structure in the ALT-C (cd into selected directory) preview window
+export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
