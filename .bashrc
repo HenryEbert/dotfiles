@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=40000
+HISTFILESIZE=100000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -118,6 +118,7 @@ fi
 
 # Alias for bare git repo which is used to manage dotfiles.
 # The remote repo lives in GitHub.
+
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 #######################################################
@@ -128,3 +129,9 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 # Print tree structure in the ALT-C (cd into selected directory) preview window
 export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --info=inline --border --margin=1 --padding=1 --color=bg+:#293739,bg:#1B1D1E,border:#808080,spinner:#E6DB74,hl:#7E8E91,fg:#F8F8F2,header:#7E8E91,info:#A6E22E,pointer:#A6E22E,marker:#F92672,fg+:#F8F8F2,prompt:#F92672,hl+:#F92672"
 export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+
+######################################################
+# vi mode
+######################################################
+set -o vi
+bind '"jk":vi-movement-mode'
